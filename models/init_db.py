@@ -10,8 +10,17 @@ def create_tables() -> None:
         models=[
             models.User,
             models.Role,
+            models.Task,
+            models.Test,
+            models.Theme,
+            models.Answer,
+            models.Course,
+            models.Question,
             models.UserRole,
+            models.UserTheme,
             models.Permission,
+            models.TestQuestion,
+            models.UserQuestion,
             models.RolePermission,
             models.Course,
             models.Theme,
@@ -19,8 +28,6 @@ def create_tables() -> None:
             models.Answer,
             models.Task,
             models.Test,
-            models.Group,
-            models.UserGroup,
         ],
         safe=True,
     )
@@ -30,7 +37,10 @@ def create_tables() -> None:
 def cretae_permission() -> None:
     """Создает роли, привелегии, распределяем роли и привилегии"""
 
-    userroles = [(320720102, "Преподаватель")]
+    userroles = [
+        (320720102, "Преподаватель"),
+        (320720102, "Студент"),
+    ]
 
     for tg_id, role_name in userroles:
         models.UserRole.get_or_create(
@@ -48,6 +58,9 @@ def cretae_permission() -> None:
         ("Преподаватель", "Добавить тему"),
         ("Преподаватель", "Добавить вопрос"),
         ("Преподаватель", "Добавить задачу"),
+        ("Студент", "Просмотр курсов"),
+        ("Студент", "Просмотр тем"),
+        ("Студент", "Просмотр всех курсов"),
     ]
 
     for role_name, permission_name in rolepermissions:
