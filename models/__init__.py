@@ -12,3 +12,5 @@ from .question import Question
 from .user_role import UserRole
 from .permission import Permission
 from .role_permission import RolePermission
+from .group import Group
+from .user_group import UserGroup

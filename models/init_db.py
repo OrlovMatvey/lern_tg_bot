@@ -19,6 +19,8 @@ def create_tables() -> None:
             models.Answer,
             models.Task,
             models.Test,
+            models.Group,
+            models.UserGroup,
         ],
         safe=True,
     )

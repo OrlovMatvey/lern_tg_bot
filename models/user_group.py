@@ -11,3 +11,8 @@ class UserGroup(Table):
 
     user = ForeignKeyField(model=User)
     group = ForeignKeyField(model=Group)
+
+    def __iter__(self):
+        yield "id", self.id
+        yield "user_id", self.user_id
+        yield "group_id", self.group_id

@@ -9,6 +9,7 @@ from . import question
 from . import answer
 from . import task
 from . import other
+from . import user
 
 
 def add_routers(dp: Dispatcher) -> None:
@@ -20,4 +21,5 @@ def add_routers(dp: Dispatcher) -> None:
     question.add_routers(dp=dp)
     task.add_routers(dp=dp)
     answer.add_routers(dp=dp)
+    user.add_routers(dp=dp)
     dp.include_routers(other.router)
